@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Настя</title>
+    <meta
+      name="description"
+      content="Личный сайт Насти: проекты, история, контакты и вдохновение."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Cormorant+Garamond:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <nav class="topbar">
+          <span class="brand">nastya-site</span>
+          <a href="#contacts">Контакты</a>
+        </nav>
+
+        <div class="hero-copy">
+          <p class="eyebrow">Личный сайт</p>
+          <h1>Пространство для истории, проектов и красивой подачи.</h1>
+          <p class="lead">
+            Здесь можно рассказать о себе, собрать портфолио, показать услуги
+            или сделать тёплый персональный лендинг.
+          </p>
+
+          <div class="hero-actions">
+            <a class="button button-primary" href="#about">Смотреть основу</a>
+            <a class="button button-secondary" href="#sections">Структура</a>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <p>Старт готов</p>
+          <strong>Новый репозиторий для сайта Насти</strong>
+          <span>HTML + CSS + JS</span>
+        </div>
+      </header>
+
+      <main>
+        <section class="about" id="about">
+          <div>
+            <p class="section-label">О сайте</p>
+            <h2>Основа уже собрана, дальше можно настроить под нужный образ.</h2>
+          </div>
+          <p>
+            Этот шаблон подойдёт как отправная точка для персонального сайта,
+            портфолио, страницы услуг или небольшого брендового лендинга.
+          </p>
+        </section>
+
+        <section class="grid" id="sections">
+          <article class="card">
+            <p class="card-index">01</p>
+            <h3>О Насте</h3>
+            <p>Кто она, чем занимается и почему людям стоит остаться на сайте.</p>
+          </article>
+          <article class="card">
+            <p class="card-index">02</p>
+            <h3>Проекты</h3>
+            <p>Кейсы, работы, достижения или визуальная галерея.</p>
+          </article>
+          <article class="card">
+            <p class="card-index">03</p>
+            <h3>Услуги</h3>
+            <p>Если сайт коммерческий, здесь можно описать форматы работы.</p>
+          </article>
+          <article class="card">
+            <p class="card-index">04</p>
+            <h3>Контакт</h3>
+            <p>Кнопки, мессенджеры, соцсети или форма связи.</p>
+          </article>
+        </section>
+
+        <section class="quote">
+          <p>
+            Сайт не обязан быть просто визиткой. Он может ощущаться как
+            настроение, характер и точка притяжения.
+          </p>
+        </section>
+      </main>
+
+      <footer class="footer" id="contacts">
+        <p>Можно редактировать содержимое прямо в `index.html`.</p>
+        <button id="theme-toggle" class="button button-secondary" type="button">
+          Сменить настроение
+        </button>
+      </footer>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
