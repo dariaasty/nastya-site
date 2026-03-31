@@ -1,101 +1,1207 @@
 <!DOCTYPE html>
-<html lang="ru">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Настя</title>
-    <meta
-      name="description"
-      content="Личный сайт Насти: проекты, история, контакты и вдохновение."
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Cormorant+Garamond:wght@500;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="./style.css" />
-  </head>
-  <body>
-    <div class="page-shell">
-      <header class="hero">
-        <nav class="topbar">
-          <span class="brand">nastya-site</span>
-          <a href="#contacts">Контакты</a>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anastasia Lobanova - Premium HR Strategist</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #d81b60;
+            --primary-dark: #ad1457;
+            --primary-light: #ff1493;
+            --secondary: #9c27b0;
+            --accent: #f50057;
+            --gold: #d4af37;
+            --platinum: #e8e8e8;
+            --bg-dark: #0f0f1e;
+            --bg-light: #ffffff;
+            --text-dark: #1a1a2e;
+            --text-light: #ffffff;
+            --text-muted: #6b6b7f;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 100px;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            color: var(--text-dark);
+            background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 25%, #fff0f5 50%, #ffe0ec 75%, #fce4ec 100%);
+            background-size: 400% 400%;
+            animation: gradientFlow 15s ease infinite;
+            line-height: 1.7;
+            position: relative;
+            overflow-x: hidden;
+            letter-spacing: 0.3px;
+        }
+
+        @keyframes gradientFlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Animated background elements */
+        .bg-element {
+            position: fixed;
+            border-radius: 50%;
+            opacity: 0.05;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .bg-element-1 {
+            width: 400px;
+            height: 400px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            top: -10%;
+            right: -5%;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .bg-element-2 {
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            bottom: 10%;
+            left: -5%;
+            animation: float 25s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            25% { transform: translate(30px, -30px); }
+            50% { transform: translate(60px, 0); }
+            75% { transform: translate(30px, 30px); }
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header - Premium */
+        header {
+            background: linear-gradient(135deg, rgba(233, 30, 140, 0.95) 0%, rgba(156, 39, 176, 0.95) 100%);
+            backdrop-filter: blur(20px);
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+            border-radius: 30px;
+            margin-bottom: 60px;
+            box-shadow:
+                0 25px 60px rgba(233, 30, 140, 0.4),
+                0 0 60px rgba(156, 39, 176, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+            animation: slideDown 1s cubic-bezier(0.34, 1.56, 0.64, 1);
+            border: 2px solid rgba(255, 255, 255, 0.15);
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        header > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-60px) scale(0.95);
+                filter: blur(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+                filter: blur(0);
+            }
+        }
+
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5em;
+            font-weight: 900;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            line-height: 1.1;
+        }
+
+        header .subtitle {
+            font-size: 1.4em;
+            font-weight: 300;
+            opacity: 0.95;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        header .location {
+            font-size: 1.1em;
+            opacity: 0.9;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 500;
+        }
+
+        .accent-line {
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gold), rgba(212, 175, 55, 0));
+            margin: 30px auto;
+            border-radius: 2px;
+        }
+
+        /* Navigation */
+        nav {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            padding: 20px 0;
+            border-radius: 25px;
+            margin-bottom: 60px;
+            box-shadow:
+                0 10px 40px rgba(233, 30, 140, 0.15),
+                0 0 30px rgba(156, 39, 176, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.5);
+            position: sticky;
+            top: 20px;
+            z-index: 100;
+            border: 2px solid rgba(233, 30, 140, 0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            padding: 0 20px;
+        }
+
+        nav a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.05em;
+            padding: 12px 28px;
+            border-radius: 30px;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+            letter-spacing: 0.5px;
+        }
+
+        nav a::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 30px;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: -1;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: all 0.4s ease;
+            transform: translateX(-50%);
+        }
+
+        nav a:hover {
+            color: white;
+            transform: translateY(-4px) scale(1.08);
+            box-shadow: 0 12px 30px rgba(233, 30, 140, 0.35);
+        }
+
+        nav a:hover::before {
+            opacity: 1;
+        }
+
+        nav a:hover::after {
+            width: 60%;
+        }
+
+        /* Contact Info - Premium Grid */
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 25px;
+            margin-bottom: 60px;
+        }
+
+        .contact-item {
+            padding: 40px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(248, 187, 208, 0.15) 100%);
+            border-radius: 25px;
+            border: 2px solid rgba(233, 30, 140, 0.1);
+            box-shadow:
+                0 10px 40px rgba(233, 30, 140, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-item::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(233, 30, 140, 0.08) 0%, transparent 70%);
+            transition: all 0.6s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-15px) scale(1.05);
+            box-shadow:
+                0 25px 60px rgba(233, 30, 140, 0.25),
+                0 0 40px rgba(156, 39, 176, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.9);
+            border-color: var(--primary);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 1) 0%, rgba(248, 187, 208, 0.3) 100%);
+        }
+
+        .contact-item:hover::before {
+            transform: translate(-30px, -30px);
+        }
+
+        .contact-item > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-item strong {
+            color: var(--primary);
+            display: block;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+        }
+
+        .contact-item a {
+            color: var(--primary-dark);
+            text-decoration: none;
+            word-break: break-word;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 1.05em;
+        }
+
+        .contact-item a:hover {
+            color: var(--primary);
+            text-decoration: underline wavy;
+            text-decoration-thickness: 2px;
+            text-underline-offset: 6px;
+        }
+
+        /* Sections - Premium */
+        .section {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.99) 0%, rgba(248, 187, 208, 0.1) 100%);
+            padding: 70px;
+            margin-bottom: 40px;
+            border-radius: 30px;
+            box-shadow:
+                0 15px 50px rgba(233, 30, 140, 0.12),
+                0 0 40px rgba(156, 39, 176, 0.08),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8);
+            border: 2px solid rgba(233, 30, 140, 0.08);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+                filter: blur(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+                filter: blur(0);
+            }
+        }
+
+        .section::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(233, 30, 140, 0.06) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        .section > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .section h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary);
+            font-size: 3em;
+            margin-bottom: 50px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            position: relative;
+            padding-bottom: 30px;
+        }
+
+        .section h2::after {
+            content: '';
+            flex-grow: 1;
+            height: 2px;
+            background: linear-gradient(90deg, var(--gold), rgba(212, 175, 55, 0));
+            border-radius: 1px;
+        }
+
+        .section h2::before {
+            content: '✨';
+            font-size: 1.5em;
+            animation: twinkle 3s ease-in-out infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.2); }
+        }
+
+        .summary {
+            font-size: 1.1em;
+            line-height: 2;
+            color: var(--text-muted);
+            margin-bottom: 25px;
+        }
+
+        .summary strong {
+            color: var(--text-dark);
+            font-weight: 700;
+        }
+
+        /* Experience Items - Premium */
+        .experience-item {
+            margin-bottom: 40px;
+            padding: 45px;
+            background: linear-gradient(135deg, rgba(248, 187, 208, 0.25) 0%, rgba(255, 240, 245, 0.3) 100%);
+            border-radius: 20px;
+            border-left: 6px solid transparent;
+            border-image: linear-gradient(135deg, var(--primary), var(--secondary)) 1;
+            transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(5px);
+            border: 2px solid rgba(233, 30, 140, 0.1);
+        }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: left 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .experience-item:hover::before {
+            left: 100%;
+        }
+
+        .experience-item:hover {
+            transform: translateX(10px) translateY(-8px);
+            box-shadow:
+                0 20px 50px rgba(233, 30, 140, 0.2),
+                0 0 40px rgba(156, 39, 176, 0.12);
+            border-color: var(--primary);
+        }
+
+        .experience-item > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .experience-item h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary);
+            font-size: 1.8em;
+            margin-bottom: 10px;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+        }
+
+        .position {
+            color: var(--primary-dark);
+            font-weight: 700;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            letter-spacing: 0.5px;
+        }
+
+        .meta {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            font-size: 0.95em;
+        }
+
+        .duration {
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .location {
+            color: var(--primary-light);
+            font-weight: 600;
+        }
+
+        .experience-description {
+            color: var(--text-dark);
+            margin-bottom: 25px;
+            font-style: italic;
+            font-weight: 500;
+        }
+
+        .experience-item ul {
+            list-style: none;
+            margin-left: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
+        }
+
+        .experience-item li {
+            padding: 12px 0 12px 30px;
+            position: relative;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .experience-item li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: 900;
+            font-size: 1.3em;
+        }
+
+        .experience-item li::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 30px;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, rgba(233, 30, 140, 0.3), transparent);
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .skill-category {
+            padding: 40px;
+            background: linear-gradient(135deg, rgba(233, 30, 140, 0.08) 0%, rgba(156, 39, 176, 0.05) 100%);
+            border-radius: 20px;
+            border: 2px solid rgba(233, 30, 140, 0.15);
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-category::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(233, 30, 140, 0.1) 0%, transparent 70%);
+            transition: all 0.6s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(233, 30, 140, 0.2);
+            border-color: var(--primary);
+        }
+
+        .skill-category:hover::before {
+            transform: translate(-30px, -30px);
+        }
+
+        .skill-category h3 {
+            color: var(--primary);
+            margin-bottom: 25px;
+            font-size: 1.4em;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .skill-list {
+            list-style: none;
+            position: relative;
+            z-index: 1;
+        }
+
+        .skill-list li {
+            padding: 12px 0 12px 30px;
+            color: var(--text-dark);
+            font-weight: 600;
+            border-bottom: 1px solid rgba(233, 30, 140, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .skill-list li:last-child {
+            border-bottom: none;
+        }
+
+        .skill-list li::before {
+            content: '💎';
+            position: absolute;
+            left: 0;
+            transition: all 0.3s ease;
+        }
+
+        .skill-list li:hover {
+            color: var(--primary);
+            padding-left: 40px;
+            font-weight: 700;
+        }
+
+        .skill-list li:hover::before {
+            transform: scale(1.4) rotate(15deg);
+        }
+
+        /* Languages */
+        .language-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 30px;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, rgba(233, 30, 140, 0.08) 0%, rgba(156, 39, 176, 0.05) 100%);
+            border-radius: 15px;
+            border: 2px solid rgba(233, 30, 140, 0.1);
+            transition: all 0.4s ease;
+        }
+
+        .language-item:hover {
+            transform: translateX(8px);
+            border-color: var(--primary);
+            box-shadow: 0 8px 25px rgba(233, 30, 140, 0.15);
+        }
+
+        .language-name {
+            font-weight: 700;
+            color: var(--text-dark);
+            font-size: 1.1em;
+        }
+
+        .language-level {
+            color: var(--primary);
+            font-size: 0.95em;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        /* Education */
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .education-item {
+            padding: 35px;
+            background: linear-gradient(135deg, rgba(248, 187, 208, 0.2) 0%, rgba(255, 240, 245, 0.3) 100%);
+            border-radius: 20px;
+            border-top: 4px solid transparent;
+            border-image: linear-gradient(90deg, var(--primary), var(--secondary)) 1;
+            border: 2px solid rgba(233, 30, 140, 0.1);
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .education-item::before {
+            content: '🎓';
+            position: absolute;
+            font-size: 5em;
+            opacity: 0.08;
+            top: -20px;
+            right: -20px;
+            transition: all 0.6s ease;
+        }
+
+        .education-item:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(233, 30, 140, 0.2);
+        }
+
+        .education-item:hover::before {
+            transform: rotate(15deg) scale(1.2);
+            opacity: 0.15;
+        }
+
+        .education-item h3 {
+            color: var(--primary);
+            margin-bottom: 12px;
+            font-size: 1.3em;
+            font-weight: 800;
+            position: relative;
+            z-index: 1;
+        }
+
+        .degree {
+            color: var(--primary-dark);
+            font-weight: 700;
+            margin-bottom: 8px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .study-period {
+            color: var(--text-muted);
+            font-size: 0.95em;
+            font-weight: 600;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, rgba(233, 30, 140, 0.95) 0%, rgba(156, 39, 176, 0.95) 100%);
+            color: white;
+            text-align: center;
+            padding: 80px 50px;
+            border-radius: 30px;
+            margin-top: 60px;
+            box-shadow:
+                0 25px 60px rgba(233, 30, 140, 0.4),
+                0 0 60px rgba(156, 39, 176, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+            border: 2px solid rgba(255, 255, 255, 0.15);
+            animation: slideUp 1s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(60px);
+                filter: blur(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+                filter: blur(0);
+            }
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        footer > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        footer p {
+            margin-bottom: 15px;
+            font-size: 1.15em;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        footer strong {
+            display: inline-block;
+            animation: pulse 2.5s ease-in-out infinite;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        footer strong:hover {
+            transform: scale(1.1);
+            filter: brightness(1.2);
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.08); }
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            header h1 {
+                font-size: 3.5em;
+            }
+
+            .section {
+                padding: 50px;
+            }
+
+            .section h2 {
+                font-size: 2.2em;
+            }
+
+            nav ul {
+                gap: 20px;
+            }
+
+            .experience-item ul {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 60px 20px;
+                border-radius: 20px;
+            }
+
+            header h1 {
+                font-size: 2.5em;
+                letter-spacing: 0;
+            }
+
+            header .subtitle {
+                font-size: 1.1em;
+            }
+
+            .section {
+                padding: 35px;
+                border-radius: 20px;
+            }
+
+            .section h2 {
+                font-size: 1.8em;
+                gap: 10px;
+            }
+
+            nav ul {
+                gap: 10px;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav a {
+                width: 100%;
+                text-align: center;
+            }
+
+            .contact-info {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .contact-item {
+                padding: 25px;
+            }
+
+            .skills-grid, .education-grid {
+                grid-template-columns: 1fr;
+            }
+
+            footer {
+                padding: 50px 25px;
+            }
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(233, 30, 140, 0.1);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, var(--primary), var(--secondary));
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(180deg, var(--primary-dark), var(--primary));
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-element bg-element-1"></div>
+    <div class="bg-element bg-element-2"></div>
+
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>Anastasia Lobanova</h1>
+            <div class="accent-line"></div>
+            <p class="subtitle">Premium HR Strategist & Talent Architect</p>
+            <p class="subtitle">Gamedev • Web3 • International Recruitment</p>
+            <p class="location">📍 Dubai, United Arab Emirates</p>
+        </header>
+
+        <!-- Navigation -->
+        <nav>
+            <ul>
+                <li><a href="#summary">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
         </nav>
 
-        <div class="hero-copy">
-          <p class="eyebrow">Личный сайт</p>
-          <h1>Пространство для истории, проектов и красивой подачи.</h1>
-          <p class="lead">
-            Здесь можно рассказать о себе, собрать портфолио, показать услуги
-            или сделать тёплый персональный лендинг.
-          </p>
-
-          <div class="hero-actions">
-            <a class="button button-primary" href="#about">Смотреть основу</a>
-            <a class="button button-secondary" href="#sections">Структура</a>
-          </div>
+        <!-- Contact Info -->
+        <div class="contact-info">
+            <div class="contact-item">
+                <strong>📱 Phone</strong>
+                <a href="tel:+79057377690">+79057377690</a>
+            </div>
+            <div class="contact-item">
+                <strong>📧 Email</strong>
+                <a href="mailto:lobanova.anastasia24@gmail.com">lobanova.anastasia24@gmail.com</a>
+            </div>
+            <div class="contact-item">
+                <strong>💼 LinkedIn</strong>
+                <a href="https://www.linkedin.com/in/lobanovaanastasia" target="_blank">lobanovaanastasia</a>
+            </div>
+            <div class="contact-item">
+                <strong>💬 Telegram</strong>
+                <a href="https://t.me/lanastHR" target="_blank">@lanastHR</a>
+            </div>
         </div>
 
-        <div class="hero-card">
-          <p>Старт готов</p>
-          <strong>Новый репозиторий для сайта Насти</strong>
-          <span>HTML + CSS + JS</span>
+        <!-- Summary -->
+        <div class="section" id="summary">
+            <h2>About Me</h2>
+            <p class="summary">
+                I'm an accomplished <strong>HR professional with 6+ years of expertise</strong> in building world-class teams and scaling organizations. Specializing in <strong>international recruitment, organizational development, and employer branding</strong>, I've successfully led HR initiatives across dynamic industries—from high-growth gamedev studios to innovative Web3 companies.
+            </p>
+            <p class="summary">
+                My approach combines <strong>strategic thinking with operational excellence</strong>. I'm passionate about creating cultures where talent thrives, building global teams across time zones, and using data-driven insights to solve complex HR challenges. With a background in International Sociology and hands-on experience across Fortune 500 companies and startups, I bring both depth and agility to every role.
+            </p>
+            <p class="summary">
+                <strong>Let's connect on Telegram (@lanastHR) or email—I'd love to discuss how I can help your organization build and scale exceptional teams.</strong>
+            </p>
         </div>
-      </header>
 
-      <main>
-        <section class="about" id="about">
-          <div>
-            <p class="section-label">О сайте</p>
-            <h2>Основа уже собрана, дальше можно настроить под нужный образ.</h2>
-          </div>
-          <p>
-            Этот шаблон подойдёт как отправная точка для персонального сайта,
-            портфолио, страницы услуг или небольшого брендового лендинга.
-          </p>
-        </section>
+        <!-- Experience -->
+        <div class="section" id="experience">
+            <h2>Experience</h2>
 
-        <section class="grid" id="sections">
-          <article class="card">
-            <p class="card-index">01</p>
-            <h3>О Насте</h3>
-            <p>Кто она, чем занимается и почему людям стоит остаться на сайте.</p>
-          </article>
-          <article class="card">
-            <p class="card-index">02</p>
-            <h3>Проекты</h3>
-            <p>Кейсы, работы, достижения или визуальная галерея.</p>
-          </article>
-          <article class="card">
-            <p class="card-index">03</p>
-            <h3>Услуги</h3>
-            <p>Если сайт коммерческий, здесь можно описать форматы работы.</p>
-          </article>
-          <article class="card">
-            <p class="card-index">04</p>
-            <h3>Контакт</h3>
-            <p>Кнопки, мессенджеры, соцсети или форма связи.</p>
-          </article>
-        </section>
+            <div class="experience-item">
+                <h3>NDA (Gamedev Studio)</h3>
+                <p class="position">Human Resources Partner</p>
+                <div class="meta">
+                    <span class="duration">September 2025 - Present (7 months)</span>
+                    <span class="location">Dubai, UAE</span>
+                </div>
+                <p class="experience-description">
+                    Leading HR operations for a premium AAA tactical first-person shooter development studio.
+                </p>
+                <ul>
+                    <li>Full-cycle international recruitment across multiple regions and time zones</li>
+                    <li>Building and nurturing global talent pipelines with exceptional candidate experience</li>
+                    <li>Architecting structured onboarding for distributed, high-performing teams</li>
+                    <li>Developing and optimizing strategic HR processes and policies</li>
+                    <li>Managing conflict resolution and providing comprehensive team support</li>
+                    <li>Driving internal communications and performance management initiatives</li>
+                    <li>Maintaining robust HR documentation and governance frameworks</li>
+                    <li>Partnering with C-level leadership on people strategy and organizational decisions</li>
+                </ul>
+            </div>
 
-        <section class="quote">
-          <p>
-            Сайт не обязан быть просто визиткой. Он может ощущаться как
-            настроение, характер и точка притяжения.
-          </p>
-        </section>
-      </main>
+            <div class="experience-item">
+                <h3>Step App</h3>
+                <p class="position">Head of HR</p>
+                <div class="meta">
+                    <span class="duration">June 2022 - Present (3 years 10 months)</span>
+                    <span class="location">Dubai, UAE</span>
+                </div>
+                <p class="experience-description">
+                    Sole HR leader building and scaling the human resources function for a cutting-edge Web3 move-to-earn platform with global reach.
+                </p>
+                <ul>
+                    <li>End-to-end talent acquisition and recruitment strategy implementation</li>
+                    <li>Designing and executing comprehensive onboarding and offboarding processes</li>
+                    <li>Creating impactful employer branding campaigns and company culture initiatives</li>
+                    <li>Automating and digitalizing HR operations to improve team efficiency</li>
+                    <li>Implementing performance management systems and fostering feedback culture</li>
+                    <li>Driving employee engagement programs and organizational development</li>
+                    <li>Managing cross-functional communication and internal events</li>
+                    <li>Building L&D programs that accelerate team growth and skill development</li>
+                </ul>
+            </div>
 
-      <footer class="footer" id="contacts">
-        <p>Можно редактировать содержимое прямо в `index.html`.</p>
-        <button id="theme-toggle" class="button button-secondary" type="button">
-          Сменить настроение
-        </button>
-      </footer>
+            <div class="experience-item">
+                <h3>MediaCom</h3>
+                <p class="position">Human Resources Specialist</p>
+                <div class="meta">
+                    <span class="duration">March 2021 - May 2022 (1 year 3 months)</span>
+                    <span class="location">Moscow, Russia</span>
+                </div>
+                <p class="experience-description">
+                    HR Specialist at one of the world's top media communications companies ($17.6B in billings, 8,000+ employees).
+                </p>
+                <ul>
+                    <li>Managed full recruitment lifecycle using industry-leading tools (Huntflow, Enboarder)</li>
+                    <li>Coordinated comprehensive onboarding with 30/90-day check-ins and probation management</li>
+                    <li>Supported employee offboarding and transition processes</li>
+                    <li>Analyzed HR processes locally and identified process improvements</li>
+                    <li>Organized 10+ impactful internal events and team-building activities</li>
+                    <li>Developed training programs and provided organizational support</li>
+                    <li>Managed vendor relationships and complex document workflows</li>
+                    <li>Actively contributed to employer branding, assessment, and wellness programs</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <h3>Kaspersky</h3>
+                <p class="position">Human Resources Assistant</p>
+                <div class="meta">
+                    <span class="duration">February 2020 - January 2021 (1 year)</span>
+                    <span class="location">Moscow, Russia</span>
+                </div>
+                <p class="experience-description">
+                    Executive support to Chief HR Officer and HQ management team at world's largest privately-held cybersecurity vendor.
+                </p>
+                <ul>
+                    <li>Provided comprehensive support to CHRO and HR leadership team</li>
+                    <li>Planned strategic business meetings and prepared executive presentations</li>
+                    <li>Coordinated regional offices on administration and HR matters</li>
+                    <li>Organized departmental events and team engagement initiatives</li>
+                    <li>Managed HR records and onboarding administration</li>
+                    <li>Supported specialized HR projects across the organization</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Skills -->
+        <div class="section" id="skills">
+            <h2>Skills & Expertise</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Core HR Competencies</h3>
+                    <ul class="skill-list">
+                        <li>Strategic HR Management</li>
+                        <li>International Recruitment</li>
+                        <li>Talent Pipeline Development</li>
+                        <li>Employee Onboarding & Offboarding</li>
+                        <li>Employer Branding Strategy</li>
+                        <li>Performance Management</li>
+                        <li>Employee Engagement</li>
+                        <li>Organizational Development</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Technical & Strategic</h3>
+                    <ul class="skill-list">
+                        <li>HR Analytics & Reporting</li>
+                        <li>Data-Driven Decision Making</li>
+                        <li>Process Digitalization</li>
+                        <li>Change Management</li>
+                        <li>Conflict Resolution</li>
+                        <li>Strategic Planning</li>
+                        <li>Project Management</li>
+                        <li>Event Management</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>HR Technology & Tools</h3>
+                    <ul class="skill-list">
+                        <li>Huntflow (Recruitment CRM)</li>
+                        <li>Enboader Automation</li>
+                        <li>1C ERP Systems</li>
+                        <li>Directum Document Management</li>
+                        <li>HRIS Platforms</li>
+                        <li>Microsoft Office Suite</li>
+                        <li>Google Workspace</li>
+                        <li>HR Analytics Tools</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Languages -->
+        <div class="section">
+            <h2>Languages</h2>
+            <div class="language-item">
+                <span class="language-name">🇷🇺 Russian</span>
+                <span class="language-level">Native / Bilingual</span>
+            </div>
+            <div class="language-item">
+                <span class="language-name">🇬🇧 English</span>
+                <span class="language-level">Professional / Fluent</span>
+            </div>
+            <div class="language-item">
+                <span class="language-name">🇩🇪 German</span>
+                <span class="language-level">Limited Working</span>
+            </div>
+            <div class="language-item">
+                <span class="language-name">🇮🇹 Italian</span>
+                <span class="language-level">Elementary</span>
+            </div>
+        </div>
+
+        <!-- Education -->
+        <div class="section" id="education">
+            <h2>Education</h2>
+            <div class="education-grid">
+                <div class="education-item">
+                    <h3>Saint Petersburg State University</h3>
+                    <p class="degree">Master's Degree, International Sociology</p>
+                    <p class="study-period">2017 - 2020</p>
+                </div>
+
+                <div class="education-item">
+                    <h3>Heidelberg University</h3>
+                    <p class="degree">Exchange Program, Social Sciences</p>
+                    <p class="study-period">September 2018 - April 2019</p>
+                </div>
+
+                <div class="education-item">
+                    <h3>Higher School of Economics</h3>
+                    <p class="degree">Bachelor's Degree, Sociology</p>
+                    <p class="study-period">2013 - 2017</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer id="contact">
+            <p>Let's build something amazing together</p>
+            <p>Reach out via <strong>Telegram (@lanastHR)</strong> or <strong>email</strong> to discuss opportunities</p>
+            <div class="accent-line"></div>
+            <p>✨ Premium CV Portfolio — Crafted with attention to detail and passion</p>
+        </footer>
     </div>
 
-    <script src="./script.js"></script>
-  </body>
+    <script>
+        // Smooth scroll with offset
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offset = 100;
+                    const top = target.offsetTop - offset;
+                    window.scrollTo({
+                        top: top,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Parallax effect
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.pageYOffset;
+            const bgElements = document.querySelectorAll('.bg-element');
+            bgElements.forEach((element, index) => {
+                const speed = 0.5 + index * 0.1;
+                element.style.transform = `translateY(${scrollTop * speed}px)`;
+            });
+        });
+
+        // Intersection observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 1s ease-out forwards';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.section, .experience-item, .contact-item, .education-item').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Add hover effects to contact items
+        document.querySelectorAll('.contact-item').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.animation = 'pulse 0.6s ease-out';
+            });
+        });
+
+        // Mobile menu optimization
+        if (window.innerWidth < 768) {
+            document.querySelectorAll('nav a').forEach(link => {
+                link.style.fontSize = '0.95em';
+            });
+        }
+    </script>
+</body>
 </html>
